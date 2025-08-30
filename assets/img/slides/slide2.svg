@@ -1,7 +1,15 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 675'>
-  <defs><linearGradient id='g2' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#7c3aed'/><stop offset='1' stop-color='#06b6d4'/></linearGradient></defs>
-  <rect width='1200' height='675' fill='url(#g2)'/>
-  <g fill='rgba(255,255,255,0.12)'><rect x='120' y='120' width='220' height='120' rx='16'/><rect x='880' y='420' width='220' height='120' rx='16'/></g>
-  <text x='60' y='90' fill='#ffffff' font-size='42' font-family='system-ui, sans-serif'>Selected Work — Systems</text>
-  <text x='60' y='140' fill='#eafffb' font-size='24' font-family='system-ui, sans-serif'>C · Unix · Signals · Algorithms</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dee9ff"/>
+      <stop offset="100%" stop-color="#c7f9e9"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)"/>
+  <g fill="none" stroke="#1e3a8a" stroke-width="6" opacity="0.3">
+    <path d="M0 630.0 C 400.0 540.0, 800.0 720.0, 1200.0 585.0 S 1600 630.0, 1600 540.0"/>
+  </g>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+        font-family="system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans"
+        font-size="64" fill="#1e3a8a" opacity="0.9">Showcase 2</text>
 </svg>

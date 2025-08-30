@@ -1,88 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects — Marvin Astonitas Canedo</title>
-  <meta name="description" content="Full project portfolio of Marvin Astonitas Canedo — CS @ GMU.">
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css" />
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects — Marvin Astonitas Canedo</title>
+    <meta name="description" content="Full project portfolio of Marvin Astonitas Canedo — CS @ GMU." />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header container">
-    <nav class="nav" aria-label="Primary">
-      <a class="logo" href="index.html#home" aria-label="Homepage">MAC</a>
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteMenu" aria-label="Open menu">☰</button>
-      <ul id="siteMenu" class="nav-menu">
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="projects.html" aria-current="page">Projects</a></li>
-        <li><a href="index.html#skills">Skills</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌓</button></li>
-      </ul>
-    </nav>
-  </header>
+    <header class="site-header container">
+      <nav class="nav" aria-label="Primary">
+        <a class="logo" href="index.html#home" aria-label="Homepage">Marvin A.C.</a>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteMenu" aria-label="Open menu">☰</button>
+        <ul id="siteMenu" class="nav-menu">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌓</button></li>
+        </ul>
+      </nav>
+    </header>
 
-  <main id="main">
-    <section class="section container">
-      <h1>Projects</h1>
-      <p class="muted">Browse by category or explore everything.</p>
+    <main id="main">
+      <section class="section container">
+        <h1>Projects</h1>
+        <p class="muted">Browse by category or explore everything.</p>
 
-      <div class="filters" role="group" aria-label="Filter projects by tag">
-        <button class="chip is-active" data-filter="all">All</button>
-        <button class="chip" data-filter="web">Web</button>
-        <button class="chip" data-filter="game">Game</button>
-        <button class="chip" data-filter="systems">Systems</button>
-        <button class="chip" data-filter="mobile">Mobile</button>
+        <div class="filters" role="group" aria-label="Filter projects by tag">
+          <button class="chip is-active" data-filter="all">All</button>
+          <button class="chip" data-filter="web">Web</button>
+          <button class="chip" data-filter="game">Game</button>
+          <button class="chip" data-filter="systems">Systems</button>
+          <button class="chip" data-filter="mobile">Mobile</button>
+        </div>
+      </section>
+
+      <div class="shape-divider" aria-hidden="true">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path class="wave-fill" d="M0,0 V40 C150,95 350,95 600,40 C850,-15 1050,-15 1200,40 V0 Z"></path>
+        </svg>
       </div>
-    </section>
 
-    <section class="section container">
-      <div class="grid">
-        <article class="card project" data-tags="game">
-          <h3>We’re Ducked (Unity)</h3>
-          <p class="muted">C# · Unity · Local co‑op</p>
-          <p class="tight">Survival with weather, crafting, tutorial prompts, and enemy AI.</p>
-          <ul class="taglist"><li>Unity</li><li>C#</li></ul>
-        </article>
+      <section class="section container">
+        <div class="grid">
+          <article class="card project project-card" data-tags="game">
+            <img class="project-thumb" src="assets/img/projects/unity.svg" alt="Unity game screenshot placeholder" />
+            <div>
+              <h3>We’re Ducked (Unity)</h3>
+              <p class="muted">C# · Unity · Local co‑op</p>
+              <p class="tight">Survival with weather, crafting, tutorial prompts, and enemy AI.</p>
+              <ul class="taglist"><li>Unity</li><li>C#</li></ul>
+            </div>
+          </article>
 
-        <article class="card project" data-tags="web">
-          <h3>OutfitPartPicker</h3>
-          <p class="muted">Flask · React · SQLAlchemy · SQLite</p>
-          <p class="tight">Shareable outfits; modular models; tested business logic.</p>
-          <ul class="taglist"><li>Flask</li><li>React</li><li>SQL</li></ul>
-        </article>
+          <article class="card project project-card" data-tags="web">
+            <img class="project-thumb" src="assets/img/projects/outfit.svg" alt="OutfitPartPicker UI placeholder" />
+            <div>
+              <h3>OutfitPartPicker</h3>
+              <p class="muted">Flask · React · SQLAlchemy · SQLite</p>
+              <p class="tight">Shareable outfits; modular models; tested business logic.</p>
+              <ul class="taglist"><li>Flask</li><li>React</li><li>SQL</li></ul>
+            </div>
+          </article>
 
-        <article class="card project" data-tags="mobile web">
-          <h3>CommuteCompanion</h3>
-          <p class="muted">.NET client · Flask API · Postgres</p>
-          <p class="tight">E‑scooter ride tracker with battery logs.</p>
-          <ul class="taglist"><li>.NET</li><li>Flask</li></ul>
-        </article>
+          <article class="card project project-card" data-tags="mobile web">
+            <img class="project-thumb" src="assets/img/projects/commute.svg" alt="CommuteCompanion UI placeholder" />
+            <div>
+              <h3>CommuteCompanion</h3>
+              <p class="muted">.NET client · Flask API · Postgres</p>
+              <p class="tight">E‑scooter ride tracker with battery logs.</p>
+              <ul class="taglist"><li>.NET</li><li>Flask</li></ul>
+            </div>
+          </article>
 
-        <article class="card project" data-tags="systems">
-          <h3>HIY Task Manager Shell</h3>
-          <p class="muted">C · Unix · Signals</p>
-          <p class="tight">Job control with robust <code>SIGCHLD</code>/<code>SIGINT</code> handling.</p>
-          <ul class="taglist"><li>C</li><li>Systems</li></ul>
-        </article>
+          <article class="card project project-card" data-tags="systems">
+            <img class="project-thumb" src="assets/img/projects/shell.svg" alt="Task manager shell terminal placeholder" />
+            <div>
+              <h3>HIY Task Manager Shell</h3>
+              <p class="muted">C · Unix · Signals</p>
+              <p class="tight">Job control with robust <code>SIGCHLD</code>/<code>SIGINT</code> handling.</p>
+              <ul class="taglist"><li>C</li><li>Systems</li></ul>
+            </div>
+          </article>
 
-        <article class="card project" data-tags="systems">
-          <h3>MotifSearch (DNA)</h3>
-          <p class="muted">C · Strings · 2D arrays</p>
-          <p class="tight">Sliding‑window DNA token search with safe I/O.</p>
-          <ul class="taglist"><li>C</li><li>Algorithms</li></ul>
-        </article>
-      </div>
-    </section>
-  </main>
+          <article class="card project project-card" data-tags="systems">
+            <img class="project-thumb" src="assets/img/projects/dna.svg" alt="DNA motif search diagram placeholder" />
+            <div>
+              <h3>MotifSearch (DNA)</h3>
+              <p class="muted">C · Strings · 2D arrays</p>
+              <p class="tight">Sliding‑window DNA token search with safe I/O.</p>
+              <ul class="taglist"><li>C</li><li>Algorithms</li></ul>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
 
-  <footer class="site-footer container">
-    <p>&copy; <span id="year"></span> Marvin Astonitas Canedo • Built with HTML, CSS, and a sprinkle of JS.</p>
-  </footer>
+    <footer class="site-footer container">
+      <p>&copy; <span id="year"></span> Marvin Astonitas Canedo • Built with HTML, CSS, and a sprinkle of JS.</p>
+    </footer>
 
-  <script src="assets/js/main.js" defer></script>
-</body>
+    <script src="assets/js/main.js" defer></script>
+  </body>
 </html>

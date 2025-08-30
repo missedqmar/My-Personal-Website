@@ -8,8 +8,8 @@
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
+
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header container">
       <nav class="nav" aria-label="Primary">
         <a class="logo" href="index.html#home" aria-label="Homepage">Marvin A.C.</a>
@@ -23,11 +23,15 @@
         </ul>
       </nav>
     </header>
+
     <main id="main">
+      <!-- ================= Duck Runner Hero ================= -->
       <section id="home" class="duck-hero" aria-label="Duck Runner Game">
         <canvas id="duckCanvas" width="1200" height="400" aria-label="Runner game canvas"></canvas>
         <button class="scroll-down" aria-label="Scroll to intro" onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">↓</button>
       </section>
+
+      <!-- ================= Intro + Slideshow ================= -->
       <section id="intro" class="intro-strip container" aria-label="Intro">
         <div class="intro-grid">
           <div class="intro-card card">
@@ -39,6 +43,7 @@
               <a class="btn" href="docs/resume.pdf" target="_blank" rel="noopener">Resume</a>
             </div>
           </div>
+
           <div class="slideshow card" aria-label="Showcase">
             <img class="slide is-active" src="assets/img/slides/slide1.svg" alt="Project showcase 1" />
             <img class="slide" src="assets/img/slides/slide2.svg" alt="Project showcase 2" />
@@ -46,12 +51,15 @@
           </div>
         </div>
       </section>
+
+      <!-- ================= About ================= -->
       <section id="about" class="section container">
         <h2>About</h2>
         <p class="tight">
           I’m a CS junior focused on shipping clear, reliable code. Recent work spans a Unity co‑op game,
           a full‑stack Flask/React app, and a C task‑manager shell that handles signals cleanly.
         </p>
+
         <div class="about-cards">
           <article class="card">
             <h3>Core strengths</h3>
@@ -61,6 +69,7 @@
               <li>Clear docs and thoughtful UX details</li>
             </ul>
           </article>
+
           <article class="card">
             <h3>Opportunities</h3>
             <ul>
@@ -70,9 +79,11 @@
           </article>
         </div>
       </section>
+
+      <!-- ================= Selected Projects (teaser) ================= -->
       <section id="projects" class="section container">
         <div class="section-header">
-          <h2>Selected Projects</h2>
+          <h2>Projects</h2>
           <div class="filters" role="group" aria-label="Filter projects by tag">
             <button class="chip is-active" data-filter="all">All</button>
             <button class="chip" data-filter="web">Web</button>
@@ -81,6 +92,7 @@
             <button class="chip" data-filter="mobile">Mobile</button>
           </div>
         </div>
+
         <div class="grid" id="projectGrid">
           <article class="card project" data-tags="game">
             <h3>We’re Ducked (Unity)</h3>
@@ -88,24 +100,28 @@
             <p class="tight">Low‑poly survival with dynamic weather, crafting, and tutorial UX. Implemented enemy AI and triggers.</p>
             <ul class="taglist"><li>Unity</li><li>C#</li></ul>
           </article>
+
           <article class="card project" data-tags="web">
             <h3>OutfitPartPicker</h3>
             <p class="muted">Flask · React · SQLAlchemy · SQLite</p>
             <p class="tight">Mix &amp; match clothing into shareable outfits; modular models and unit‑tested logic.</p>
             <ul class="taglist"><li>Flask</li><li>React</li><li>SQL</li></ul>
           </article>
+
           <article class="card project" data-tags="mobile web">
             <h3>CommuteCompanion</h3>
             <p class="muted">.NET client · Flask API · Postgres</p>
             <p class="tight">Ride tracker for an e‑scooter with battery logging and Dockerized persistence.</p>
             <ul class="taglist"><li>.NET</li><li>Flask</li></ul>
           </article>
+
           <article class="card project" data-tags="systems">
             <h3>HIY Task Manager Shell</h3>
             <p class="muted">C · Unix · Signals</p>
             <p class="tight">Job control and robust <code>SIGCHLD</code>/<code>SIGINT</code> handling to avoid zombies.</p>
             <ul class="taglist"><li>C</li><li>Systems</li></ul>
           </article>
+
           <article class="card project" data-tags="systems">
             <h3>MotifSearch (DNA)</h3>
             <p class="muted">C · Strings · 2D arrays</p>
@@ -113,10 +129,16 @@
             <ul class="taglist"><li>C</li><li>Algorithms</li></ul>
           </article>
         </div>
-        <p class="muted" style="margin-top: 1rem">Explore the full list on the <a href="projects.html">Projects page</a>.</p>
+
+        <p class="muted" style="margin-top: 1rem">
+          Explore the full list on the <a href="projects.html">Projects page</a>.
+        </p>
       </section>
+
+      <!-- ================= Skills ================= -->
       <section id="skills" class="section container">
         <h2>Skills</h2>
+
         <div class="skills">
           <div>
             <h3>Languages</h3>
@@ -124,12 +146,14 @@
               <li>Java</li><li>C</li><li>C#</li><li>HTML/CSS</li><li>JavaScript</li>
             </ul>
           </div>
+
           <div>
             <h3>Tools</h3>
             <ul class="pill-list">
               <li>Git</li><li>VS Code</li><li>Unity</li><li>Flask</li><li>SQLAlchemy</li><li>Docker</li>
             </ul>
           </div>
+
           <div>
             <h3>Databases</h3>
             <ul class="pill-list">
@@ -138,18 +162,23 @@
           </div>
         </div>
       </section>
+
+      <!-- ================= Contact ================= -->
       <section id="contact" class="section container">
         <h2>Contact</h2>
         <p class="tight">Get in touch.</p>
+
         <div class="contact-grid">
           <a class="card contact" href="mailto:your.email@example.com" aria-label="Email">
             <h3>Email</h3>
             <p class="muted">your.email@example.com</p>
           </a>
+
           <a class="card contact" href="#" target="_blank" rel="noopener" aria-label="GitHub">
             <h3>GitHub</h3>
             <p class="muted">Add your profile link</p>
           </a>
+
           <a class="card contact" href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
             <h3>LinkedIn</h3>
             <p class="muted">Add your profile link</p>
@@ -157,9 +186,11 @@
         </div>
       </section>
     </main>
+
     <footer class="site-footer container">
       <p>&copy; <span id="year"></span> Marvin Astonitas Canedo • Built with HTML, CSS, and a sprinkle of JS.</p>
     </footer>
+
     <script src="assets/js/main.js" defer></script>
     <script src="assets/js/duck-runner.js" defer></script>
   </body>

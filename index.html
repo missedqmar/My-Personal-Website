@@ -1,197 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Marvin Astonitas Canedo — Personal Website</title>
-    <meta name="description" content="Portfolio of Marvin Astonitas Canedo — CS @ GMU. Projects in C, Java, C#, Unity, Flask, SQLAlchemy." />
-    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-  </head>
 
-  <body>
-    <header class="site-header container">
-      <nav class="nav" aria-label="Primary">
-        <a class="logo" href="index.html#home" aria-label="Homepage">Marvin A.C.</a>
-        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteMenu" aria-label="Open menu">☰</button>
-        <ul id="siteMenu" class="nav-menu">
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="index.html#skills">Skills</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-          <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌓</button></li>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <header class="site-header container">
+    <nav class="nav" aria-label="Primary">
+      <a class="logo" href="index.html#home" aria-label="Homepage">Marvin Astonitas Canedo</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteMenu"
+        aria-label="Open menu">☰</button>
+      <ul id="siteMenu" class="nav-menu">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌓</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ================= Duck Runner Game ================= -->
+    <section id="home" class="duck-hero" aria-label="Duck Runner Game">
+      <canvas id="duckCanvas" width="1200" height="400" aria-label="Runner game canvas"></canvas>
+      <button class="scroll-down" aria-label="Scroll to intro"
+        onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">↓</button>
+    </section>
+
+    <!-- ================= Intro Section with Skills ================= -->
+    <section id="intro" class="intro-strip container" aria-label="Intro">
+      <div class="intro-container">
+        <!-- Left: Intro Card -->
+        <div class="intro-card card">
+          <h1 class="intro-name">Marvin Astonitas Canedo</h1>
+          <p class="intro-sub">Junior • Computer Science @ GMU</p>
+          <p class="intro-tag">I'm Marvin, a CS student at George Mason University with a passion for game design,
+            UI/UX, and software engineering.</p>
+
+          <div class="intro-cta">
+            <a class="btn primary" href="projects.html">View Projects</a>
+            <a href="assets/docs/resume.pdf" class="btn" target="_blank">Resume</a>
+          </div>
+        </div>
+
+        <!-- Middle: Profile Picture -->
+        <div class="profile-image-container">
+          <img src="assets/img/profile.jpg" alt="Marvin Astonitas Canedo" class="profile-image">
+        </div>
+
+        <!-- Right: Skills -->
+        <div class="skills-card card">
+          <h3>Skills</h3>
+
+          <div class="skills-group">
+            <h4>Languages</h4>
+            <ul class="pill-list">
+              <li>Java</li>
+              <li>C</li>
+              <li>C#</li>
+              <li>HTML/CSS</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+
+          <div class="skills-group">
+            <h4>Tools</h4>
+            <ul class="pill-list">
+              <li>Git</li>
+              <li>VS Code</li>
+              <li>Unity</li>
+              <li>Flask</li>
+              <li>SQLAlchemy</li>
+            </ul>
+          </div>
+
+          <div class="skills-group">
+            <h4>Databases</h4>
+            <ul class="pill-list">
+              <li>SQLite</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= About ================= -->
+    <section id="about" class="section container">
+      <h2>About</h2>
+      <p class="tight">
+        Junior CS student at George Mason University with dual expertise in game development and backend systems.
+        My technical foundation spans Unity-based games with user-centered design principles, Flask/SQLAlchemy backends,
+        and low-level C systems programming. I combine strong implementation skills with documentation practices that
+        help teams move faster. U.S. citizen, clearance-eligible.
+      </p>
+
+      <div class="about-cards">
+        <article class="card">
+          <h3>Technical Strengths</h3>
+          <ul>
+            <li>Full-stack versatility (C#/Unity to Flask/SQL)</li>
+            <li>System architecture with modular, testable designs</li>
+            <li>Low-level programming with security awareness</li>
+            <li>User-centered design and testing workflows</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Leadership</h3>
+          <ul>
+            <li>Led 4-person Unity team to successful delivery</li>
+            <li>Documentation that accelerates onboarding</li>
+            <li>Collaborative problem-solving across disciplines</li>
+            <li>Clear technical communication with non-technical stakeholders</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Seeking Opportunities</h3>
+          <ul>
+            <li>Backend or game engine internships</li>
+            <li>System architecture and API design roles</li>
+            <li>Technical positions requiring security clearance</li>
+            <li>Collaborative teams with learning opportunities</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= Selected Projects (teaser) ================= -->
+    <section id="projects" class="section container">
+      <div class="section-header">
+        <h2>Projects</h2>
+        <div class="filters" role="group" aria-label="Filter projects by tag">
+          <button class="chip is-active" data-filter="all">All</button>
+          <button class="chip" data-filter="web">Web</button>
+          <button class="chip" data-filter="game">Game</button>
+          <button class="chip" data-filter="systems">Systems</button>
+          <button class="chip" data-filter="mobile">Mobile</button>
+        </div>
+      </div>
+
+      <div class="project-selector">
+        <ul class="project-titles">
+          <!-- populated by JS -->
         </ul>
-      </nav>
-    </header>
+      </div>
 
-    <main id="main">
-      <!-- ================= Duck Runner Hero ================= -->
-      <section id="home" class="duck-hero" aria-label="Duck Runner Game">
-        <canvas id="duckCanvas" width="1200" height="400" aria-label="Runner game canvas"></canvas>
-        <button class="scroll-down" aria-label="Scroll to intro" onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">↓</button>
-      </section>
+      <div class="project-showcase">
+        <!-- Left side: Current project info -->
+        <div class="project-info">
+          <div id="currentProject" class="card project">
+            <!-- populated by JS -->
+          </div>
+          <div class="project-navigation">
+            <button class="project-nav prev" aria-label="Previous project">←</button>
+            <button class="project-nav next" aria-label="Next project">→</button>
+          </div>
+        </div>
 
-      <!-- ================= Intro + Slideshow ================= -->
-      <section id="intro" class="intro-strip container" aria-label="Intro">
-        <div class="intro-grid">
-          <div class="intro-card card">
-            <h1 class="intro-name">Marvin Astonitas Canedo</h1>
-            <p class="intro-sub">Junior • Computer Science @ GMU</p>
-            <p class="intro-tag">I build practical software across web, systems, and gameplay.</p>
-            <div class="intro-cta">
-              <a class="btn primary" href="projects.html">View Projects</a>
-              <a class="btn" href="docs/resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <!-- Right side: Media showcase -->
+        <div class="project-media">
+          <div class="media-container">
+            <!-- Video placeholder - will be populated per project -->
+            <video id="projectVideo" class="project-video" controls>
+              <source src="" type="video/mp4">
+              Your browser does not support video playback.
+            </video>
+
+            <!-- Images placeholder - will be populated per project -->
+            <div class="project-images">
+              <img class="project-image" src="" alt="">
+              <img class="project-image" src="" alt="">
+              <img class="project-image" src="" alt="">
             </div>
           </div>
-
-          <div class="slideshow card" aria-label="Showcase">
-            <img class="slide is-active" src="assets/img/slides/slide1.svg" alt="Project showcase 1" />
-            <img class="slide" src="assets/img/slides/slide2.svg" alt="Project showcase 2" />
-            <img class="slide" src="assets/img/slides/slide3.svg" alt="Project showcase 3" />
-          </div>
         </div>
-      </section>
+      </div>
 
-      <!-- ================= About ================= -->
-      <section id="about" class="section container">
-        <h2>About</h2>
-        <p class="tight">
-          I’m a CS junior focused on shipping clear, reliable code. Recent work spans a Unity co‑op game,
-          a full‑stack Flask/React app, and a C task‑manager shell that handles signals cleanly.
-        </p>
+      <!-- Store all project data (hidden) -->
+      <div id="projectData" class="hidden">
+        <article class="card project" data-tags="game" data-id="were-ducked" data-video="assets/videos/were-ducked.mp4"
+          data-img1="assets/img/projects/were-ducked-1.svg" data-img2="assets/img/projects/were-ducked-2.svg"
+          data-img3="assets/img/projects/were-ducked-3.svg">
+          <h3>We're Ducked (Unity)</h3>
+          <p class="muted">C# · Unity · Local co‑op</p>
+          <p class="tight">Low‑poly survival with dynamic weather, crafting, and tutorial UX. Implemented enemy AI and
+            triggers.</p>
+          <ul class="taglist">
+            <li>Unity</li>
+            <li>C#</li>
+          </ul>
+        </article>
 
-        <div class="about-cards">
-          <article class="card">
-            <h3>Core strengths</h3>
-            <ul>
-              <li>Rapid prototyping with clean, readable code</li>
-              <li>Testable designs and small, focused modules</li>
-              <li>Clear docs and thoughtful UX details</li>
-            </ul>
-          </article>
+        <article class="card project" data-tags="web" data-id="outfitpartpicker"
+          data-video="assets/videos/outfitpartpicker.mp4" data-img1="assets/img/projects/outfitpartpicker-1.svg"
+          data-img2="assets/img/projects/outfitpartpicker-2.svg" data-img3="assets/img/projects/outfitpartpicker-3.svg">
+          <h3>OutfitPartPicker</h3>
+          <p class="muted">Flask · React · SQLAlchemy · SQLite</p>
+          <p class="tight">Mix &amp; match clothing into shareable outfits; modular models and unit‑tested logic.</p>
+          <ul class="taglist">
+            <li>Flask</li>
+            <li>React</li>
+            <li>SQL</li>
+          </ul>
+        </article>
 
-          <article class="card">
-            <h3>Opportunities</h3>
-            <ul>
-              <li>Backend or full‑stack internships</li>
-              <li>Gameplay/engine‑adjacent roles</li>
-            </ul>
-          </article>
-        </div>
-      </section>
+        <article class="card project" data-tags="mobile web" data-id="commutecompanion"
+          data-video="assets/videos/commutecompanion.mp4" data-img1="assets/img/projects/commutecompanion-1.svg"
+          data-img2="assets/img/projects/commutecompanion-2.svg" data-img3="assets/img/projects/commutecompanion-3.svg">
+          <h3>CommuteCompanion</h3>
+          <p class="muted">.NET client · Flask API · Postgres</p>
+          <p class="tight">Ride tracker for an e‑scooter with battery logging and Dockerized persistence.</p>
+          <ul class="taglist">
+            <li>.NET</li>
+            <li>Flask</li>
+          </ul>
+        </article>
 
-      <!-- ================= Selected Projects (teaser) ================= -->
-      <section id="projects" class="section container">
-        <div class="section-header">
-          <h2>Projects</h2>
-          <div class="filters" role="group" aria-label="Filter projects by tag">
-            <button class="chip is-active" data-filter="all">All</button>
-            <button class="chip" data-filter="web">Web</button>
-            <button class="chip" data-filter="game">Game</button>
-            <button class="chip" data-filter="systems">Systems</button>
-            <button class="chip" data-filter="mobile">Mobile</button>
-          </div>
-        </div>
+        <article class="card project" data-tags="systems" data-id="hiy-task-manager"
+          data-video="assets/videos/hiy-task-manager.mp4" data-img1="assets/img/projects/hiy-task-manager-1.svg"
+          data-img2="assets/img/projects/hiy-task-manager-2.svg" data-img3="assets/img/projects/hiy-task-manager-3.svg">
+          <h3>HIY Task Manager Shell</h3>
+          <p class="muted">C · Unix · Signals</p>
+          <p class="tight">Job control and robust <code>SIGCHLD</code>/<code>SIGINT</code> handling to avoid zombies.
+          </p>
+          <ul class="taglist">
+            <li>C</li>
+            <li>Systems</li>
+          </ul>
+        </article>
 
-        <div class="grid" id="projectGrid">
-          <article class="card project" data-tags="game">
-            <h3>We’re Ducked (Unity)</h3>
-            <p class="muted">C# · Unity · Local co‑op</p>
-            <p class="tight">Low‑poly survival with dynamic weather, crafting, and tutorial UX. Implemented enemy AI and triggers.</p>
-            <ul class="taglist"><li>Unity</li><li>C#</li></ul>
-          </article>
+        <article class="card project" data-tags="systems" data-id="motifsearch"
+          data-video="assets/videos/motifsearch.mp4" data-img1="assets/img/projects/motifsearch-1.svg"
+          data-img2="assets/img/projects/motifsearch-2.svg" data-img3="assets/img/projects/motifsearch-3.svg">
+          <h3>MotifSearch (DNA)</h3>
+          <p class="muted">C · Strings · 2D arrays</p>
+          <p class="tight">Sliding‑window search for short DNA tokens with safe I/O (<code>fgets</code>,
+            <code>sscanf</code>).
+          </p>
+          <ul class="taglist">
+            <li>C</li>
+            <li>Algorithms</li>
+          </ul>
+        </article>
+      </div>
 
-          <article class="card project" data-tags="web">
-            <h3>OutfitPartPicker</h3>
-            <p class="muted">Flask · React · SQLAlchemy · SQLite</p>
-            <p class="tight">Mix &amp; match clothing into shareable outfits; modular models and unit‑tested logic.</p>
-            <ul class="taglist"><li>Flask</li><li>React</li><li>SQL</li></ul>
-          </article>
+      <p class="muted" style="margin-top: 1rem">
+        More details on the <a href="projects.html">Projects page</a>.
+      </p>
+    </section>
 
-          <article class="card project" data-tags="mobile web">
-            <h3>CommuteCompanion</h3>
-            <p class="muted">.NET client · Flask API · Postgres</p>
-            <p class="tight">Ride tracker for an e‑scooter with battery logging and Dockerized persistence.</p>
-            <ul class="taglist"><li>.NET</li><li>Flask</li></ul>
-          </article>
+    <!-- ================= Contact ================= -->
+    <section id="contact" class="section container">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <a class="card contact" href="mailto:MarvinAstonitas@gmail.com" aria-label="Email">
+          <h3>Email</h3>
+          <p class="muted">MarvinAstonitas@gmail.com</p>
+        </a>
 
-          <article class="card project" data-tags="systems">
-            <h3>HIY Task Manager Shell</h3>
-            <p class="muted">C · Unix · Signals</p>
-            <p class="tight">Job control and robust <code>SIGCHLD</code>/<code>SIGINT</code> handling to avoid zombies.</p>
-            <ul class="taglist"><li>C</li><li>Systems</li></ul>
-          </article>
+        <a class="card contact" href="https://github.com/missedqmar" target="_blank" rel="noopener" aria-label="GitHub">
+          <h3>GitHub</h3>
+          <p class="muted">github.com/missedqmar</p>
+        </a>
 
-          <article class="card project" data-tags="systems">
-            <h3>MotifSearch (DNA)</h3>
-            <p class="muted">C · Strings · 2D arrays</p>
-            <p class="tight">Sliding‑window search for short DNA tokens with safe I/O (<code>fgets</code>, <code>sscanf</code>).</p>
-            <ul class="taglist"><li>C</li><li>Algorithms</li></ul>
-          </article>
-        </div>
+        <a class="card contact" href="https://linkedin.com/in/MarvinAstonitas" target="_blank" rel="noopener"
+          aria-label="LinkedIn">
+          <h3>LinkedIn</h3>
+          <p class="muted">linkedin.com/in/MarvinAstonitas</p>
+        </a>
+      </div>
+    </section>
+  </main>
 
-        <p class="muted" style="margin-top: 1rem">
-          Explore the full list on the <a href="projects.html">Projects page</a>.
-        </p>
-      </section>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/duck-runner.js" defer></script>
+</body>
 
-      <!-- ================= Skills ================= -->
-      <section id="skills" class="section container">
-        <h2>Skills</h2>
-
-        <div class="skills">
-          <div>
-            <h3>Languages</h3>
-            <ul class="pill-list">
-              <li>Java</li><li>C</li><li>C#</li><li>HTML/CSS</li><li>JavaScript</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3>Tools</h3>
-            <ul class="pill-list">
-              <li>Git</li><li>VS Code</li><li>Unity</li><li>Flask</li><li>SQLAlchemy</li><li>Docker</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3>Databases</h3>
-            <ul class="pill-list">
-              <li>SQLite</li><li>PostgreSQL</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= Contact ================= -->
-      <section id="contact" class="section container">
-        <h2>Contact</h2>
-        <p class="tight">Get in touch.</p>
-
-        <div class="contact-grid">
-          <a class="card contact" href="mailto:your.email@example.com" aria-label="Email">
-            <h3>Email</h3>
-            <p class="muted">your.email@example.com</p>
-          </a>
-
-          <a class="card contact" href="#" target="_blank" rel="noopener" aria-label="GitHub">
-            <h3>GitHub</h3>
-            <p class="muted">Add your profile link</p>
-          </a>
-
-          <a class="card contact" href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <h3>LinkedIn</h3>
-            <p class="muted">Add your profile link</p>
-          </a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer container">
-      <p>&copy; <span id="year"></span> Marvin Astonitas Canedo • Built with HTML, CSS, and a sprinkle of JS.</p>
-    </footer>
-
-    <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/duck-runner.js" defer></script>
-  </body>
 </html>

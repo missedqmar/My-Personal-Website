@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -15,13 +16,12 @@
           aria-label="Open menu">☰</button>
         <ul id="siteMenu" class="nav-menu">
           <li><a href="index.html#about">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </div>
       
-      <div class="theme-toggle-wrapper">
+      <div class="header-theme-toggle">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
           <svg class="icon sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
@@ -71,7 +71,7 @@
               </p>
               
               <div class="intro-cta">
-                <a class="btn primary" href="projects.html">View Projects</a>
+                <a class="btn primary" href="#projects">View Projects</a>
                 <a href="assets/docs/resume.pdf" class="btn" target="_blank">Resume</a>
               </div>
             </div>
@@ -156,6 +156,12 @@
               <img class="project-image" src="" alt="">
               <img class="project-image" src="" alt="">
               <img class="project-image" src="" alt="">
+              
+              <!-- Image navigation buttons -->
+              <div class="image-navigation">
+                <button class="image-nav prev" aria-label="Previous image">←</button>
+                <button class="image-nav next" aria-label="Next image">→</button>
+              </div>
             </div>
           </div>
         </div>
@@ -253,20 +259,20 @@
       <h2>Contact</h2>
       <div class="contact-grid">
         <a class="card contact-card" href="mailto:MarvinAstonitas@gmail.com" aria-label="Email">
-          <div class="contact-icon email-icon"></div>
+          <i class="fa-solid fa-envelope fa-2x"></i>
           <h3>Email</h3>
           <p class="muted">MarvinAstonitas@gmail.com</p>
         </a>
 
         <a class="card contact-card" href="https://github.com/missedqmar" target="_blank" rel="noopener" aria-label="GitHub">
-          <div class="contact-icon github-icon"></div>
+          <i class="fa-brands fa-github fa-2x"></i>
           <h3>GitHub</h3>
           <p class="muted">github.com/missedqmar</p>
         </a>
 
         <a class="card contact-card" href="https://linkedin.com/in/MarvinAstonitas" target="_blank" rel="noopener"
           aria-label="LinkedIn">
-          <div class="contact-icon linkedin-icon"></div>
+          <i class="fa-brands fa-linkedin fa-2x"></i>
           <h3>LinkedIn</h3>
           <p class="muted">linkedin.com/in/MarvinAstonitas</p>
         </a>

@@ -181,6 +181,10 @@ chips.forEach((chip) => {
   const nextButton = document.querySelector('.project-nav.next');
   const projectTitles = document.querySelector('.project-titles');
   
+  // Image navigation buttons
+  const imagePrevButton = document.querySelector('.image-nav.prev');
+  const imageNextButton = document.querySelector('.image-nav.next');
+  
   // Get all projects from the hidden data
   const allProjects = Array.from(projectData.querySelectorAll('.project'));
   let currentIndex = 0;
@@ -198,13 +202,27 @@ chips.forEach((chip) => {
     // Create project title list
     createProjectTitles();
     
-    // Show first project
-    showProject(0);
+    // Find the "We're Ducked" project as default
+    let defaultIndex = 0; // Fallback to first project
+    const wereDuckedProject = allProjects.findIndex(project => project.dataset.id === 'were-ducked');
+    
+    if (wereDuckedProject !== -1) {
+      defaultIndex = wereDuckedProject;
+    }
+    
+    // Show default project
+    showProject(defaultIndex);
     
     // Set up navigation
     if (prevButton && nextButton) {
       prevButton.addEventListener('click', showPreviousProject);
       nextButton.addEventListener('click', showNextProject);
+    }
+    
+    // Set up image navigation
+    if (imagePrevButton && imageNextButton) {
+      imagePrevButton.addEventListener('click', showPreviousImage);
+      imageNextButton.addEventListener('click', showNextImage);
     }
     
     // Hook into existing filter system
@@ -283,6 +301,57 @@ chips.forEach((chip) => {
     showProject(newIndex);
   }
   
+  function showPreviousImage() {
+    // Prevent automatic cycling
+    clearTimeout(imageTimer);
+    
+    // Hide all images
+    projectImages.forEach(img => {
+      img.style.opacity = '0';
+    });
+    
+    // Calculate previous index with wraparound
+    imageIndex = (imageIndex - 1 + projectImages.length) % projectImages.length;
+    
+    // Show current image
+    if (projectImages[imageIndex] && projectImages[imageIndex].src) {
+      projectImages[imageIndex].style.opacity = '1';
+    }
+  }
+  
+  function showNextImage() {
+    // Prevent automatic cycling
+    clearTimeout(imageTimer);
+    
+    // Hide all images
+    projectImages.forEach(img => {
+      img.style.opacity = '0';
+    });
+    
+    // Calculate next index with wraparound
+    imageIndex = (imageIndex + 1) % projectImages.length;
+    
+    // Show current image
+    if (projectImages[imageIndex] && projectImages[imageIndex].src) {
+      projectImages[imageIndex].style.opacity = '1';
+    }
+  }
+  
+  function showImageSequence() {
+    // Reset image sequence
+    imageIndex = 0;
+    
+    // Hide all images first
+    projectImages.forEach(img => {
+      img.style.opacity = '0';
+    });
+    
+    // Show the first image immediately (no automatic cycling)
+    if (projectImages[imageIndex] && projectImages[imageIndex].src) {
+      projectImages[imageIndex].style.opacity = '1';
+    }
+  }
+  
   function loadProjectMedia(project) {
     // Get media paths from data attributes
     const videoSrc = project.dataset.video || '';
@@ -296,20 +365,17 @@ chips.forEach((chip) => {
       projectVideo.style.display = 'block';
       projectVideo.load(); // Important to reload the video
       
-      // Attempt to play video (may be blocked by autoplay policies)
-      const playPromise = projectVideo.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Autoplay was blocked, show images instead
-          videoEnded = true;
-          projectVideo.style.display = 'none';
-          showImageSequence();
-        });
-      }
+      // Don't autoplay - just show first frame
+      projectVideo.pause();
+      
+      // Since we're not auto-playing, show the images instead
+      videoEnded = true;
+      showImageSequence();
     } else {
       // No video, show images immediately
       projectVideo.style.display = 'none';
       videoEnded = true;
+      showImageSequence();
     }
     
     // Update image sources
@@ -319,41 +385,8 @@ chips.forEach((chip) => {
       projectImages[2].src = img3Src || 'assets/img/placeholder.svg';
     }
     
-    // If no video or autoplay blocked, start image sequence
-    if (videoEnded) {
-      showImageSequence();
-    }
-  }
-  
-  function showImageSequence() {
-    // Reset image sequence
-    imageIndex = 0;
-    
-    // Hide all images first
-    projectImages.forEach(img => {
-      img.style.opacity = '0';
-    });
-    
-    // Start the sequence
-    showNextImage();
-  }
-  
-  function showNextImage() {
-    // Hide all images
-    projectImages.forEach(img => {
-      img.style.opacity = '0';
-    });
-    
-    // Show current image if we have one
-    if (imageIndex < projectImages.length && projectImages[imageIndex].src) {
-      projectImages[imageIndex].style.opacity = '1';
-    }
-    
-    // Set timer for next image
-    imageTimer = setTimeout(() => {
-      imageIndex = (imageIndex + 1) % projectImages.length;
-      showNextImage();
-    }, 5000); // Show each image for 5 seconds
+    // Show first image (no automatic cycling)
+    showImageSequence();
   }
   
   function updateFilteringSystem() {

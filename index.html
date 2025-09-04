@@ -3,42 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
   <header class="site-header container">
     <nav class="nav" aria-label="Primary">
-      <a class="logo" href="index.html#home" aria-label="Homepage">Marvin A.C.</a>
-      
+      <a class="logo" href="index.html#home">Marvin A.C.</a>
       <div class="nav-wrapper">
-        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteMenu"
-          aria-label="Open menu">☰</button>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteMenu">☰</button>
         <ul id="siteMenu" class="nav-menu">
-          <li><a href="index.html#about">About</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
-      
-      <div class="header-theme-toggle">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-          <svg class="icon sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <svg class="icon moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5" />
+          <!-- SVG line elements to draw out sun(for animation): x1,y1 = starting point, x2,y2 = ending point -->
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+        <svg class="icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
     </nav>
   </header>
 
@@ -53,29 +51,29 @@
     <!-- ================= Intro Section with Side Profile ================= -->
     <section id="intro" class="intro-strip container" aria-label="Intro">
       <div class="intro-two-column">
-        <!-- Left column: All text content -->
+        <!-- Left column: Text content -->
         <div class="intro-content card">
           <div class="intro-header">
             <h1 class="intro-name">Marvin Astonitas Canedo</h1>
             <p class="intro-sub">Junior • Computer Science @ George Mason University</p>
           </div>
-          
+
           <div class="intro-row">
             <!-- About column -->
             <div class="intro-col">
               <h2 class="section-title">About Me</h2>
               <p class="tight">
                 CS student passionate about game development and backend systems.
-                My technical foundation spans Unity game development, Flask/SQLAlchemy backends, 
+                My technical foundation spans Unity game development, Flask/SQLAlchemy backends,
                 and low-level C systems programming with a focus on clean documentation.
               </p>
-              
+
               <div class="intro-cta">
                 <a class="btn primary" href="#projects">View Projects</a>
                 <a href="assets/docs/resume.pdf" class="btn" target="_blank">Resume</a>
               </div>
             </div>
-            
+
             <!-- Skills column -->
             <div class="intro-col">
               <h3>Technical Skills</h3>
@@ -89,7 +87,7 @@
                 <span class="skill-pill">Flask</span>
                 <span class="skill-pill">SQLite</span>
               </div>
-              
+
               <h3>Career Goals</h3>
               <ul class="compact-list">
                 <li>Backend & game engine development roles</li>
@@ -99,7 +97,7 @@
             </div>
           </div>
         </div>
-        
+
         <!-- Right column: Large profile image -->
         <div class="profile-container card">
           <img src="assets/img/profile.png" alt="Marvin Astonitas Canedo" class="profile-image">
@@ -107,7 +105,7 @@
       </div>
     </section>
 
-    <!-- ================= Selected Projects (teaser) ================= -->
+    <!-- ================= Projects ================= -->
     <section id="projects" class="section container">
       <div class="section-header">
         <h2>Projects</h2>
@@ -131,7 +129,7 @@
       </div>
 
       <div class="project-showcase">
-        <!-- Left side: Current project info and images -->
+        <!-- Left side: Project info and images -->
         <div class="project-info-container">
           <!-- Project card -->
           <div class="project-info">
@@ -146,7 +144,7 @@
               <button class="project-nav next" aria-label="Next project">→</button>
             </div>
           </div>
-          
+
           <!-- Project images below project card -->
           <div class="project-images-container">
             <div class="project-images loading-placeholder">
@@ -156,7 +154,7 @@
               <img class="project-image" src="" alt="">
               <img class="project-image" src="" alt="">
               <img class="project-image" src="" alt="">
-              
+
               <!-- Image navigation buttons -->
               <div class="image-navigation">
                 <button class="image-nav prev" aria-label="Previous image">←</button>
@@ -166,13 +164,13 @@
           </div>
         </div>
 
-        <!-- Right side: Media showcase (video only) -->
+        <!-- Right side: Video showcase -->
         <div class="project-media loading-placeholder">
           <div class="loading-overlay">
             <div class="loading-pulse"></div>
           </div>
           <div class="media-container">
-            <!-- Video only - will be populated per project -->
+            <!-- Video only - populated project -->
             <video id="projectVideo" class="project-video" controls muted>
               <source src="" type="video/mp4">
               Your browser does not support video playback.
@@ -264,7 +262,8 @@
           <p class="muted">MarvinAstonitas@gmail.com</p>
         </a>
 
-        <a class="card contact-card" href="https://github.com/missedqmar" target="_blank" rel="noopener" aria-label="GitHub">
+        <a class="card contact-card" href="https://github.com/missedqmar" target="_blank" rel="noopener"
+          aria-label="GitHub">
           <i class="fa-brands fa-github fa-2x"></i>
           <h3>GitHub</h3>
           <p class="muted">github.com/missedqmar</p>

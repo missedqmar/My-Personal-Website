@@ -1,15 +1,10 @@
-/* Duck Runner — v6
- * - Time-based physics (60fps)
- * - Pekin duck look (white body, orange beak/legs)
- * - Larger obstacle gaps; fixed palette independent of theme
- * - Hero vignette; funny touches (jump "quack!" bubble, occasional hat)
- */
+/* Duck Runner — v6 */
 (function () {
   const canvas = document.getElementById("duckCanvas");
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
 
-  // Combine colors and constants
+  // Combined constants
   const C = {
     SKY: { TOP: "#0e1224", BOTTOM: "#0b0f1a" },
     DUCK: { WHITE: "#ffffff", ORANGE: "#f59e0b", EYE: "#0b0d10" },
@@ -26,69 +21,40 @@
     }
   };
 
-  /* ---------- Game state ---------- */
-  let started = false;
-  let gameOver = false;
-
-  let score = 0;
-  let scoreAccum = 0;
-
-  // Slightly brisk starting speed
-  let speedPPS = 270;
-  const gravity = 720;
-  const jumpVel = -405;
+  /* Game state */
+  let started = false, gameOver = false, score = 0, scoreAccum = 0;
+  let speedPPS = C.GAME.SPEED, quackTimer = 0, distSinceSpawn = 0;
+  let obstacles = [], clouds = [], ticks = [];
 
   const groundY = () => canvas.height - 40;
-
   const duck = {
-    x: 80,
-    y: 0,
-    w: 44,
-    h: 34,
-    vy: 0,
-    onGround: true,
+    x: 80, y: 0, w: 44, h: 34, vy: 0, onGround: true
   };
 
-  // Duck cosmetics (funny): occasional tiny hat
-  const cosmetics = {
-    hat: Math.random() < 0.25, // 25% of runs
-  };
+  // Duck cosmetics
+  const cosmetics = { hat: Math.random() < 0.25 };
 
-  // "Quack!" bubble when jumping (brief)
-  let quackTimer = 0;
-
-  // Obstacles & clouds & ground ticks
-  let obstacles = [];
-  let clouds = [];
-  let ticks = [];
-  let distSinceSpawn = 0;
-
-  // Simplified resize with ratio constant
-  const RATIO = 1200 / 400;
+  // Canvas sizing
   const resize = () => {
     const w = Math.min(window.innerWidth * 0.92, 1100);
     canvas.width = w;
-    canvas.height = w / RATIO;
+    canvas.height = w / 3; // 1200/400 ratio
   };
-  resize();
-  window.addEventListener("resize", resize);
 
-  function spawnObstacle() {
+  /* Factory functions */
+  const generateItems = (count, factory) => Array.from({ length: count }, factory);
+
+  const spawnObstacle = () => {
     const h = 30 + Math.random() * 35;
     const w = 18 + Math.random() * 20;
-
     obstacles.push({
       x: canvas.width + 10,
       y: groundY() - h,
-      w,
-      h,
-      bread: Math.random() < 0.2, // 20%: render as a bread slice for comedy
+      w, h,
+      bread: Math.random() < 0.2
     });
-  }
+  };
 
-  // Combined cloud and tick spawn with array generation
-  const generateItems = (count, factory) => Array.from({length: count}, factory);
-  
   const spawnClouds = () => {
     clouds = generateItems(4, () => ({
       x: Math.random() * canvas.width,
@@ -107,38 +73,21 @@
     }));
   };
 
-  /* ---------- Controls ---------- */
+  /* Game control */
   function jump() {
     if (!started) started = true;
     if (gameOver) return;
-
     if (duck.onGround) {
-      duck.vy = jumpVel;
+      duck.vy = C.GAME.JUMP;
       duck.onGround = false;
-      quackTimer = 0.25; // seconds
+      quackTimer = 0.25;
     }
   }
 
-  window.addEventListener("keydown", (e) => {
-    if (e.code === "Space" || e.code === "ArrowUp") {
-      e.preventDefault();
-      jump();
-    } else if (e.code === "KeyR") {
-      reset();
-    }
-  }, { passive: false });
-
-  canvas.addEventListener("pointerdown", jump);
-
-  /* ---------- Helpers ---------- */
   function reset() {
-    started = false;
-    gameOver = false;
-
-    score = 0;
-    scoreAccum = 0;
-
-    speedPPS = 270;
+    started = gameOver = false;
+    score = scoreAccum = 0;
+    speedPPS = C.GAME.SPEED;
     obstacles = [];
     distSinceSpawn = 0;
 
@@ -240,7 +189,7 @@
   };
 
   function drawDuck() {
-    const {x, y, w, h} = duck;
+    const { x, y, w, h } = duck;
     const headX = x + w - 10;
     const headY = y - 10;
 
@@ -353,8 +302,14 @@
   /* ---------- Update & loop ---------- */
   let lastTs = 0;
 
-  // Combined update logic for moving objects
-  const updateMoving = (dt) => {
+  function update(dt) {
+    // Stop processing if game not active
+    if (!started || gameOver) {
+      quackTimer = Math.max(0, quackTimer - dt);
+      return;
+    }
+
+    // Update entities
     clouds.forEach(c => {
       c.x -= c.spd * dt;
       if (c.x + c.w < 0) {
@@ -363,42 +318,28 @@
       }
     });
 
-    const dx = C.GAME.SPEED * dt;
-    obstacles.forEach(o => o.x -= dx);
-    obstacles = obstacles.filter(o => o.x + o.w > -10);
-  };
-
-  function update(dt) {
-    if (!started || gameOver) {
-      quackTimer = Math.max(0, quackTimer - dt);
-      return;
-    }
-
-    updateMoving(dt);
-    
-    // Physics update
+    // Physics and jumping
     duck.vy += C.GAME.GRAVITY * dt;
     duck.y += duck.vy * dt;
-    
+
     if (duck.y + duck.h >= groundY()) {
       duck.y = groundY() - duck.h;
       duck.vy = 0;
       duck.onGround = true;
     }
 
-    // Obstacles
+    // Obstacles and spawning
     const dx = speedPPS * dt;
-    obstacles.forEach((o) => (o.x -= dx));
-    obstacles = obstacles.filter((o) => o.x + o.w > -10);
+    obstacles.forEach(o => o.x -= dx);
+    obstacles = obstacles.filter(o => o.x + o.w > -10);
 
     distSinceSpawn += dx;
-    const targetGap = C.GAME.GAP.MIN + Math.random() * C.GAME.GAP.RAND;
-    if (distSinceSpawn >= targetGap) {
+    if (distSinceSpawn >= C.GAME.GAP.MIN + Math.random() * C.GAME.GAP.RAND) {
       spawnObstacle();
       distSinceSpawn = 0;
     }
 
-    // Collision
+    // Collision check
     for (const o of obstacles) {
       if (collide(duck, o)) {
         gameOver = true;
@@ -406,17 +347,16 @@
       }
     }
 
-    // Score & difficulty
-    const inc = 30 * dt;
-    score += inc;
-    scoreAccum += inc;
+    // Score and difficulty
+    score += 30 * dt;
+    scoreAccum += 30 * dt;
     if (scoreAccum >= 250) {
       speedPPS += 18;
       scoreAccum = 0;
     }
 
-    // Quack bubble decay
-    if (quackTimer > 0) quackTimer = Math.max(0, quackTimer - dt);
+    // Effects
+    quackTimer = Math.max(0, quackTimer - dt);
   }
 
   function draw(dt) {
@@ -451,7 +391,19 @@
     requestAnimationFrame(loop);
   }
 
-  // Kickoff
+  // Initialize
+  resize();
+  window.addEventListener("resize", resize);
+  window.addEventListener("keydown", e => {
+    if (e.code === "Space" || e.code === "ArrowUp") {
+      e.preventDefault();
+      jump();
+    } else if (e.code === "KeyR") {
+      reset();
+    }
+  }, { passive: false });
+  canvas.addEventListener("pointerdown", jump);
+
   reset();
   requestAnimationFrame(loop);
 })();
